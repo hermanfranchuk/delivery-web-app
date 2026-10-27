@@ -1,0 +1,66 @@
+-- products / orders / order_products
+
+
+-- PRODUCTS TABLE (id | name | price_cent)
+SELECT * FROM products;
+-- show all products
+
+SELECT id, name, price_cent FROM products;
+-- show only main columns
+
+SELECT * FROM products WHERE id = 1;
+-- get product by id
+
+INSERT INTO products (name, price_cent)
+VALUES ('Pizza Salami', 950);
+-- add new product
+
+UPDATE products
+SET price_cent = 1050
+WHERE id = 1;
+-- update product price
+
+DELETE FROM products WHERE id = 1;
+-- delete product by id
+
+DELETE FROM products;
+-- delete all products
+
+
+-- ORDERS TABLE (id | customer_id | time_created | status)
+SELECT * FROM orders;
+-- show all orders
+
+INSERT INTO orders (customer_id, time_created, status)
+VALUES (1, NOW(), 'open');
+-- create new order
+
+UPDATE orders
+SET status = 'fulfilled'
+WHERE id = 3;
+-- mark order as completed
+
+DELETE FROM orders WHERE id = 3;
+-- delete order by id
+
+
+-- ORDER_PRODUCTS TABLE (order_id | product_id | quantity)
+SELECT * FROM order_products;
+-- show all order items
+
+SELECT * FROM order_products WHERE order_id = 3;
+-- show products of one order
+
+INSERT INTO order_products (order_id, product_id, quantity)
+VALUES (3, 1, 2);
+-- add product to order
+
+DELETE FROM order_products WHERE order_id = 3;
+-- delete all products from order
+
+
+-- JOIN EXAMPLE (orders + users)
+SELECT o.id, u.firstname, u.lastname
+FROM orders o
+JOIN users u ON o.customer_id = u.id;
+-- combine orders with users

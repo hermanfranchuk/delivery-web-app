@@ -1,0 +1,21 @@
+category,name,description,imageUri,priceCent
+pizza,Margherita,"Tomatensauce, Mozzarella, Basilikum",img/pizza/margherita.jpg,800
+pizza,Salami,"Tomatensauce, Mozzarella, Salami",img/pizza/salami.jpg,900
+pizza,Funghi,"Tomatensauce, Mozzarella, Champignons", img/pizza/funghi.jpg,900
+pizza,Napolitana,"Tomatensauce, Sardellen, Oliven, Kapern",img/pizza/napolitana.jpg,900
+pizza,Capricciosa,"Tomatensauce, Mozzarella, Pilze,Schinken, Ei, Artischocke, Oliven",img/pizza/capricciosa.jpg,900
+pasta,Carbonara,"Spaghetti, Schinken, Ei",img/pasta/carbonara.jpg,350
+pasta,Fettuccine Alfredo,"Fettuccine, Sahne, Parmesan",img/pasta/fettuccine-alfredo.jpg,500
+pasta,Lachsnudeln,"Spaghetti, Lachs, Sahne",img/pasta/lachs.jpg,600
+pasta,Lasagne,"Lasagneblätter, Tomatensauce, Hackfleisch ",img/pasta/lasagne.jpg,500
+pasta,Penne Arrabbiata,"Penne, Speck, Tomatensauce, Chilli",img/pasta/penne-arrabbiata.jpg,600
+salat,Insalata Caprese,"Mozzarella, Tomaten, Basilikum",img/salat/caprese.jpg,300
+salat,Panzanella,"Tomaten, Brotstücke, Gurken, Basilikum",img/salat/panzanella.jpg,400
+salat,Insalata di Pollo,"Rucola, Tomaten, Hänchen",img/salat/di-pollo.jpg,500
+beverage,Wasser,"0,5 Liter",img/beverage/wasser.jpg,450
+beverage,Cola,"0,5 Liter",img/beverage/cola.jpg,450
+beverage,Apfelschorle,"0,5 Liter",img/beverage/apfelschorle.jpg,450
+beverage,Orangenlimonade,"0,5 Liter",img/beverage/orangenlimo.jpg,450
+beverage,Zitronenlimonade,"0,5 Liter",img/beverage/zitronenlimo.jpg,450
+beverage,Weißwein,"0,2 Liter",img/beverage/weisswein.jpg,450
+beverage,Rotwein,"0,2 Liter",img/beverage/rotwein.jpg,450

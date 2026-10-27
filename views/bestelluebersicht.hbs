@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestellung</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<!-- header -->
+<header>
+    <nav>
+        <!-- admin check -->
+        {{#if isAdmin}}
+            <a href="/" id="logo">Delivery Admin</a>
+            <a href="/admin/bestellungen" id="adm">Alle Bestellungen</a>
+        {{else}}
+            <a href="/" id="logo">Delivery</a>
+        {{/if}}
+
+        <a href="/produkte?category=pizza" id="menu_nav">Speisekarte</a>
+        <a href="/ausloggen" id="ausloggen">Ausloggen</a>
+        <span id="hello_user">Hallo {{user.firstname}}</span>
+    </nav>
+    <!-- errors -->
+    <div id="toast_msg"></div>
+</header>
+
+<section id="main_part">
+    <!-- order overview -->
+    <section class="order_fullpage">
+        <section id="cart_box">
+
+            <h3>Ihre Bestellung</h3>
+
+            <p style="color:#777; margin-bottom:20px;">
+                Bitte überprüfen Sie Ihre Bestellung, bevor Sie diese zahlungspflichtig absenden
+            </p>
+
+            {{#each cartItems}}
+                <!-- items-->
+                <section class="cart_item_wrap">
+
+                    <img class="cart_details_img" src="{{imageUri}}" alt="{{name}}">
+
+                    <section class="cart_item">
+                        <section class="cart_row">
+                            <p class="cart_name">{{name}}</p>
+                            <p class="cart_price">{{priceText}}</p>
+                        </section>
+
+                        <p class="cart_details_text">{{description}}</p>
+
+                        <section class="cart_amount_row">
+                            <!-- +\- (change amount) -->
+                            <div class="cart_amount_controls">
+                                <form method="post" action="/cart/remove">
+                                    <input type="hidden" name="productId" value="{{id}}">
+                                    <button type="submit" class="cart_btn">−</button>
+                                </form>
+
+                                <span class="cart_amount">{{amount}}</span>
+
+                                <form method="post" action="/cart/add">
+                                    <input type="hidden" name="productId" value="{{id}}">
+                                    <button type="submit" class="cart_btn">+</button>
+                                </form>
+                            </div>
+
+                            <p class="cart_subtotal">{{subtotalText}}</p>
+                        </section>
+                    </section>
+                </section>
+
+                <div class="cart_divider"></div>
+            {{/each}}
+
+            <!-- sum -->
+            <section class="cart_sum">
+                <section class="cart_row">
+                    <p class="cart_name">Gesamt</p>
+                    <p class="cart_price">{{cartTotalEuro}}</p>
+                </section>
+            </section>
+
+            <div class="cart_divider"></div>
+
+            <!-- min price -->
+            <section class="cart_minimum_row">
+                <p class="cart_minimum_label">Mindestbestellwert</p>
+                <p class="cart_minimum_value">{{minOrder}}</p>
+            </section>
+
+            <!-- place order button with price check -->
+            <form method="post" action="/bestellen">
+                <button class="order_submit_button {{#unless minOrderOk}}order_submit_button_disabled{{/unless}}" type="submit" {{#unless minOrderOk}}disabled{{/unless}}>
+                    Zahlungspflichtig bestellen | {{cartTotalEuro}}
+                </button>
+            </form>
+        </section>
+    </section>
+</section>
+
+<!-- footer -->
+<footer id="footer_box">
+    <p id="footer_title">KONTAKT</p>
+    <section id="footer_text">
+        <p>Delivery Pizza</p>
+        <p>Römerstr. 37</p>
+        <p>93047 Regensburg</p>
+    </section>
+</footer>
+
+<!-- scripts -->
+<script src="/js/main.js"></script>
+</body>
+</html>
